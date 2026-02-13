@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For Tasnim ❤️</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      height: 100vh;
+      overflow: hidden;
+      transition: 0.5s;
+    }
+
+    h1 {
+      margin-top: 120px;
+      font-size: 50px;
+      color: white;
+    }
+
+    p {
+      font-size: 26px;
+      color: white;
+    }
+
+    button {
+      padding: 18px 35px;
+      font-size: 20px;
+      margin: 20px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    #yesBtn {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #333;
+      color: white;
+      position: absolute;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    /* Blooming flower animation */
+    .flower {
+      position: fixed;
+      font-size: 40px;
+      opacity: 0;
+      transform: scale(0) rotate(0deg);
+      animation: bloom 4s ease-in-out forwards;
+    }
+
+    @keyframes bloom {
+      0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+      }
+      30% {
+        transform: scale(1.2) rotate(20deg);
+        opacity: 1;
+      }
+      60% {
+        transform: scale(1) rotate(-15deg);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(0.5) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Tasnim, Will You Be My Valentine? ❤️</h1>
+<p>2 months. 5 beautiful dates.  
+And I still get butterflies around you.</p>
+
+<button id="yesBtn" onclick="yesClicked()">YES 💖</button>
+<button id="noBtn" onclick="noClicked()">NO 😏</button>
+
+<script>
+
+let noTexts = [
+  "Are you sure? 🥺",
+  "Really sure?? 😭",
+  "Think again…",
+  "Your heart says YES 💖",
+  "Don’t break my heart 😩",
+  "Last chance...",
+  "Come on Tasnim 😏"
+];
+
+let index = 0;
+
+function noClicked() {
+  const btn = document.getElementById("noBtn");
+  btn.innerText = noTexts[index % noTexts.length];
+  index++;
+
+  let x = Math.random() * (window.innerWidth - 250);
+  let y = Math.random() * (window.innerHeight - 150);
+
+  btn.style.left = x + "px";
+  btn.style.top = y + "px";
+}
+
+function yesClicked() {
+  document.body.style.background = "#ff69b4";
+  document.body.innerHTML = `
+    <div style="padding: 80px 60px;">
+      <h1 style="font-size:85px; color:white;">
+        Tasnim ❤️
+      </h1>
+      <p style="font-size:42px; color:white; line-height:1.6;">
+        You make me the happiest person alive.  
+        Every time we talk, I fall for you a little more.
+        <br><br>
+        When I look into your eyes, it feels like watching the sunset melt into the ocean — calm, deep, and unbelievably beautiful.  
+        I could get lost in them forever.
+        <br><br>
+        Since the day we met, not a single day has passed without you crossing my mind.  
+        You are the sweetest part of my life.
+        <br><br>
+        I don’t just want you as my Valentine this year…  
+        I want to hold your hands every Valentine’s Day from now on.
+        <br><br>
+        — Miftah ❤️
+      </p>
+    </div>
+  `;
+
+  startBloom();
+}
+
+function startBloom() {
+  let flowers = ["🌹","🌸","🌺","🌷","💐"];
+
+  setInterval(() => {
+    let flower = document.createElement("div");
+    flower.className = "flower";
+    flower.innerText = flowers[Math.floor(Math.random() * flowers.length)];
+
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.top = Math.random() * 100 + "vh";
+
+    document.body.appendChild(flower);
+
+    setTimeout(() => {
+      flower.remove();
+    }, 4000);
+
+  }, 500);
+}
+
+</script>
+
+</body>
+</html>
